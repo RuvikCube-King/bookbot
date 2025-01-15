@@ -6,7 +6,10 @@ def count_letters(book):
             characters[char] += 1
         else:
             characters[char] = 1
-    print(characters)
+
+    for char in characters:
+        print(f"The '{char}' character was found {characters[char]} times.")
+    
 
 
 def get_book_text(path) -> str:
@@ -21,9 +24,11 @@ def main() -> int:
     book_path = "books/frankenstein.txt"
     file_contents = get_book_text(book_path)
     word_count = count(file_contents)
+    print(f"--- Begin report of {book_path} ---")
     print(f"There are {word_count} words in the book")
     print("The letter count for the book is:")
     count_letters(file_contents)
+    print("--- End Report ---")
     return 0
 
 main()
